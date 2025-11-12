@@ -4,20 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Casa Telmo - Hostel Auténtico en San Telmo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Fuentes y colores base */
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+        /* Fuentes y colores base - Versión más suave */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap');
         
         :root {
-            --color-primary: #8B4513; /* Marrón cálido */
-            --color-secondary: #D4AF37; /* Dorado */
-            --color-accent: #8B0000; /* Rojo tango */
-            --color-dark: #2C2C2C; /* Negro para texto */
-            --color-light: #F5F5F5; /* Beige claro */
-            --color-medium: #A9A9A9; /* Gris medio */
+            --color-primary: #A67C52; /* Marrón cálido más suave */
+            --color-secondary: #C9A96E; /* Dorado apagado */
+            --color-accent: #B56551; /* Terracota suave */
+            --color-dark: #4A4A4A; /* Gris oscuro suave */
+            --color-light: #F8F5F2; /* Beige muy claro */
+            --color-medium: #D1C6B8; /* Beige medio */
+            --color-white: #FFFFFF;
             --font-tango: 'Montserrat', sans-serif;
-            --font-text: 'Roboto', sans-serif;
+            --font-text: 'Open Sans', sans-serif;
         }
         
         * {
@@ -35,13 +36,13 @@
         
         /* Header */
         header {
-            background-color: var(--color-dark);
-            color: var(--color-light);
-            padding: 1rem 0;
+            background-color: var(--color-white);
+            color: var(--color-dark);
+            padding: 1.2rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
         }
         
         .container {
@@ -58,14 +59,17 @@
         
         .logo {
             font-family: var(--font-tango);
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            color: var(--color-secondary);
+            color: var(--color-primary);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
+            display: flex;
+            align-items: center;
         }
         
-        .logo span {
+        .logo i {
+            margin-right: 10px;
             color: var(--color-accent);
         }
         
@@ -75,27 +79,43 @@
         }
         
         nav ul li {
-            margin-left: 1.5rem;
+            margin-left: 1.8rem;
         }
         
         nav ul li a {
-            color: var(--color-light);
+            color: var(--color-dark);
             text-decoration: none;
             font-family: var(--font-tango);
-            font-weight: 700;
+            font-weight: 600;
             text-transform: uppercase;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--color-accent);
+            transition: width 0.3s;
         }
         
         nav ul li a:hover {
-            color: var(--color-secondary);
+            color: var(--color-accent);
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
         }
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://source.unsplash.com/random/1200x800/?buenos-aires,san-telmo') no-repeat center center/cover;
-            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            height: 85vh;
             display: flex;
             align-items: center;
             text-align: center;
@@ -110,38 +130,52 @@
         
         .hero h1 {
             font-family: var(--font-tango);
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+            font-weight: 700;
+            line-height: 1.2;
         }
         
         .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+            font-weight: 300;
         }
         
         .btn {
             display: inline-block;
             background-color: var(--color-accent);
             color: white;
-            padding: 0.8rem 1.5rem;
+            padding: 0.9rem 2rem;
             border: none;
-            border-radius: 4px;
+            border-radius: 30px;
             font-family: var(--font-tango);
-            font-weight: 700;
+            font-weight: 600;
             text-transform: uppercase;
             text-decoration: none;
-            transition: background-color 0.3s, transform 0.3s;
+            transition: all 0.3s;
             cursor: pointer;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         
         .btn:hover {
-            background-color: var(--color-secondary);
-            color: var(--color-dark);
+            background-color: var(--color-primary);
             transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid white;
+            margin-left: 1rem;
+        }
+        
+        .btn-secondary:hover {
+            background-color: white;
+            color: var(--color-dark);
         }
         
         /* Secciones generales */
@@ -153,31 +187,41 @@
             text-align: center;
             margin-bottom: 3rem;
             font-family: var(--font-tango);
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: var(--color-primary);
-            text-transform: uppercase;
+            font-weight: 600;
             position: relative;
         }
         
         .section-title:after {
             content: '';
             display: block;
-            width: 100px;
+            width: 80px;
             height: 3px;
             background-color: var(--color-accent);
-            margin: 0.5rem auto;
+            margin: 0.8rem auto;
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            color: var(--color-dark);
+            font-size: 1.1rem;
+            font-weight: 300;
         }
         
         /* Sobre Nosotros */
         .about {
-            background-color: white;
+            background-color: var(--color-white);
         }
         
         .about-content {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
-            gap: 2rem;
+            gap: 3rem;
         }
         
         .about-text {
@@ -185,13 +229,18 @@
             min-width: 300px;
         }
         
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+        
         .about-image {
             flex: 1;
             min-width: 300px;
-            height: 400px;
-            background: url('https://source.unsplash.com/random/600x800/?hostel,buenos-aires') no-repeat center center/cover;
-            border-radius: 5px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            height: 450px;
+            background: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         
         /* Experiencias */
@@ -201,58 +250,111 @@
         
         .experience-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
         }
         
         .experience-card {
-            background-color: white;
-            border-radius: 5px;
+            background-color: var(--color-white);
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: transform 0.4s, box-shadow 0.4s;
+            display: flex;
+            flex-direction: column;
         }
         
         .experience-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
         }
         
         .experience-image {
-            height: 200px;
+            height: 220px;
             background-color: var(--color-medium);
         }
         
         .experience-content {
-            padding: 1.5rem;
+            padding: 1.8rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
         
         .experience-content h3 {
             font-family: var(--font-tango);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
             color: var(--color-primary);
+            font-size: 1.4rem;
+        }
+        
+        .experience-content p {
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .experience-icon {
+            font-size: 2rem;
+            color: var(--color-accent);
+            margin-bottom: 1rem;
         }
         
         /* Galería */
         .gallery {
-            background-color: white;
+            background-color: var(--color-white);
         }
         
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
         }
         
         .gallery-item {
-            height: 250px;
+            height: 280px;
             background-color: var(--color-medium);
-            border-radius: 5px;
+            border-radius: 8px;
             overflow: hidden;
             transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
         }
         
         .gallery-item:hover {
-            transform: scale(1.05);
+            transform: scale(1.03);
+        }
+        
+        /* Promociones */
+        .promotions {
+            background: linear-gradient(135deg, #f8f5f2 0%, #e8dfd3 100%);
+        }
+        
+        .promo-banner {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .promo-banner h3 {
+            font-family: var(--font-tango);
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .promo-code {
+            background-color: rgba(255,255,255,0.2);
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            display: inline-block;
+            font-weight: bold;
+            margin: 1.2rem 0;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            border: 1px dashed rgba(255,255,255,0.5);
         }
         
         /* Contacto */
@@ -262,7 +364,7 @@
         }
         
         .contact .section-title {
-            color: var(--color-light);
+            color: var(--color-white);
         }
         
         .contact-content {
@@ -277,73 +379,53 @@
         }
         
         .contact-item {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             display: flex;
             align-items: flex-start;
         }
         
         .contact-icon {
-            margin-right: 1rem;
+            margin-right: 1.2rem;
             color: var(--color-secondary);
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            width: 24px;
+            text-align: center;
         }
         
-        .contact-form input, .contact-form textarea {
+        .contact-form input, .contact-form textarea, .contact-form select {
             width: 100%;
-            padding: 0.8rem;
-            margin-bottom: 1rem;
+            padding: 1rem;
+            margin-bottom: 1.2rem;
             border: none;
-            border-radius: 4px;
+            border-radius: 8px;
             background-color: rgba(255,255,255,0.1);
             color: white;
+            font-family: var(--font-text);
+            transition: background-color 0.3s;
+        }
+        
+        .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus {
+            background-color: rgba(255,255,255,0.15);
+            outline: none;
         }
         
         .contact-form input::placeholder, .contact-form textarea::placeholder {
             color: rgba(255,255,255,0.7);
         }
         
-        /* Promociones */
-        .promotions {
-            background-color: var(--color-light);
-        }
-        
-        .promo-banner {
-            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
-            color: white;
-            padding: 2rem;
-            border-radius: 5px;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        
-        .promo-banner h3 {
-            font-family: var(--font-tango);
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-        
-        .promo-code {
-            background-color: rgba(255,255,255,0.2);
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            display: inline-block;
-            font-weight: bold;
-            margin: 1rem 0;
-        }
-        
         /* Footer */
         footer {
             background-color: var(--color-dark);
             color: var(--color-light);
-            padding: 3rem 0 1rem;
+            padding: 4rem 0 1.5rem;
         }
         
         .footer-content {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
         
         .footer-section {
@@ -356,7 +438,8 @@
             margin-bottom: 1.5rem;
             color: var(--color-secondary);
             position: relative;
-            padding-bottom: 0.5rem;
+            padding-bottom: 0.8rem;
+            font-size: 1.3rem;
         }
         
         .footer-section h3:after {
@@ -367,26 +450,33 @@
             width: 50px;
             height: 2px;
             background-color: var(--color-accent);
+            border-radius: 2px;
         }
         
         .social-links {
             display: flex;
             gap: 1rem;
+            margin-top: 1.5rem;
         }
         
         .social-link {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             width: 40px;
             height: 40px;
             background-color: rgba(255,255,255,0.1);
             border-radius: 50%;
             text-align: center;
             line-height: 40px;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
+            color: white;
+            text-decoration: none;
         }
         
         .social-link:hover {
             background-color: var(--color-accent);
+            transform: translateY(-3px);
         }
         
         .copyright {
@@ -397,6 +487,54 @@
             color: var(--color-medium);
         }
         
+        /* Testimonios */
+        .testimonials {
+            background-color: var(--color-white);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background-color: var(--color-light);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .testimonial-text:before {
+            content: """;
+            font-size: 3rem;
+            color: var(--color-medium);
+            position: absolute;
+            top: -1rem;
+            left: -0.5rem;
+            opacity: 0.3;
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--color-medium);
+            margin-right: 1rem;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .header-content {
@@ -405,16 +543,32 @@
             }
             
             nav ul {
-                margin-top: 1rem;
+                margin-top: 1.5rem;
                 justify-content: center;
+                flex-wrap: wrap;
             }
             
             nav ul li {
-                margin: 0 0.5rem;
+                margin: 0.5rem 1rem;
             }
             
             .hero h1 {
                 font-size: 2.5rem;
+            }
+            
+            .btn-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
             }
         }
     </style>
@@ -424,11 +578,11 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">Casa <span>Telmo</span></div>
+                <div class="logo"><i class="fas fa-home"></i>Casa Telmo</div>
                 <nav>
                     <ul>
                         <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+                        <li><a href="#sobre-nosotros">Nosotros</a></li>
                         <li><a href="#experiencias">Experiencias</a></li>
                         <li><a href="#galeria">Galería</a></li>
                         <li><a href="#contacto">Contacto</a></li>
@@ -444,7 +598,10 @@
             <div class="hero-content">
                 <h1>Viví San Telmo como un local</h1>
                 <p>Un hostel auténtico en el corazón del casco histórico de Buenos Aires, donde el tango, el rock nacional y la bohemia se encuentran.</p>
-                <a href="#contacto" class="btn">Reservá tu estadía</a>
+                <div class="btn-container">
+                    <a href="#contacto" class="btn">Reservá tu estadía</a>
+                    <a href="#experiencias" class="btn btn-secondary">Descubrir experiencias</a>
+                </div>
             </div>
         </div>
     </section>
@@ -453,11 +610,13 @@
     <section class="about" id="sobre-nosotros">
         <div class="container">
             <h2 class="section-title">Sobre Nosotros</h2>
+            <p class="section-subtitle">Más que un hostel, una experiencia auténtica en el barrio más emblemático de Buenos Aires</p>
             <div class="about-content">
                 <div class="about-text">
                     <p>En Casa Telmo, no solo ofrecemos alojamiento, sino una experiencia auténtica en el barrio más emblemático de Buenos Aires. Ubicados en el corazón de San Telmo, somos el punto de encuentro perfecto para viajeros que buscan sumergirse en la cultura porteña.</p>
                     <p>Nuestro equipo, liderado por Noe, está comprometido en hacer de tu estadía una experiencia única, conectándote con la esencia más genuina de Buenos Aires: sus calles adoquinadas, sus bares históricos, la pasión del tango y la energía del rock nacional.</p>
                     <p>Creemos en el turismo responsable y en crear lazos genuinos con nuestros huéspedes, ofreciéndoles no solo un lugar para dormir, sino un hogar lejos de casa y una puerta de entrada a las experiencias más auténticas que la ciudad tiene para ofrecer.</p>
+                    <a href="#contacto" class="btn" style="margin-top: 1rem;">Conocenos más</a>
                 </div>
                 <div class="about-image"></div>
             </div>
@@ -468,34 +627,41 @@
     <section class="experiences" id="experiencias">
         <div class="container">
             <h2 class="section-title">Experiencias Únicas</h2>
+            <p class="section-subtitle">Descubrí Buenos Aires a través de experiencias auténticas diseñadas para viajeros que buscan algo más</p>
             <div class="experience-grid">
                 <div class="experience-card">
-                    <div class="experience-image" style="background: url('https://source.unsplash.com/random/600x400/?tango') no-repeat center center/cover;"></div>
+                    <div class="experience-image" style="background: url('https://images.unsplash.com/photo-1518609878373-06d740f60d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;"></div>
                     <div class="experience-content">
+                        <div class="experience-icon"><i class="fas fa-music"></i></div>
                         <h3>Tango Auténtico</h3>
                         <p>Viví el tango como un porteño. Milongas secretas, clases con bailarines locales y noches inolvidables en los lugares más auténticos.</p>
+                        <a href="#" class="btn" style="align-self: flex-start; padding: 0.7rem 1.5rem; font-size: 0.9rem;">Más información</a>
                     </div>
                 </div>
                 <div class="experience-card">
-                    <div class="experience-image" style="background: url('https://source.unsplash.com/random/600x400/?asado,argentina') no-repeat center center/cover;"></div>
+                    <div class="experience-image" style="background: url('https://images.unsplash.com/photo-1559305289-0f7e0d1dff02?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80') no-repeat center center/cover;"></div>
                     <div class="experience-content">
+                        <div class="experience-icon"><i class="fas fa-utensils"></i></div>
                         <h3>Asados & Vino</h3>
                         <p>Descubrí los sabores de Argentina con asados tradicionales y degustaciones de los mejores vinos argentinos en entornos únicos.</p>
+                        <a href="#" class="btn" style="align-self: flex-start; padding: 0.7rem 1.5rem; font-size: 0.9rem;">Más información</a>
                     </div>
                 </div>
                 <div class="experience-card">
-                    <div class="experience-image" style="background: url('https://source.unsplash.com/random/600x400/?rock,concert') no-repeat center center/cover;"></div>
+                    <div class="experience-image" style="background: url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;"></div>
                     <div class="experience-content">
+                        <div class="experience-icon"><i class="fas fa-guitar"></i></div>
                         <h3>Rock Nacional</h3>
                         <p>Recorremos juntos los templos del rock argentino, desde bares underground hasta los escenarios donde nacieron las leyendas.</p>
+                        <a href="#" class="btn" style="align-self: flex-start; padding: 0.7rem 1.5rem; font-size: 0.9rem;">Más información</a>
                     </div>
                 </div>
             </div>
-            <div style="text-align: center; margin-top: 3rem;">
+            <div style="text-align: center; margin-top: 4rem;">
                 <p>En alianza con <strong>Experience Baires</strong> te ofrecemos las mejores experiencias locales. Mencioná que venís de parte de Casa Telmo con el código:</p>
                 <div class="promo-code">#CasaTelmo</div>
                 <p>y obtené un descuento especial en todas las experiencias.</p>
-                <a href="https://experiencebaires.com/collections" class="btn" style="margin-top: 1rem;">Ver catálogo completo</a>
+                <a href="https://experiencebaires.com/collections" class="btn" style="margin-top: 1.5rem;">Ver catálogo completo</a>
             </div>
         </div>
     </section>
@@ -504,13 +670,60 @@
     <section class="gallery" id="galeria">
         <div class="container">
             <h2 class="section-title">Nuestro Espacio</h2>
+            <p class="section-subtitle">Conocé nuestro hostel y los rincones de San Telmo que nos inspiran cada día</p>
             <div class="gallery-grid">
-                <div class="gallery-item" style="background: url('https://source.unsplash.com/random/600x600/?hostel,room') no-repeat center center/cover;"></div>
-                <div class="gallery-item" style="background: url('https://source.unsplash.com/random/600x600/?san-telmo,buenos-aires') no-repeat center center/cover;"></div>
-                <div class="gallery-item" style="background: url('https://source.unsplash.com/random/600x600/?courtyard,argentina') no-repeat center center/cover;"></div>
-                <div class="gallery-item" style="background: url('https://source.unsplash.com/random/600x600/?hostel,common-area') no-repeat center center/cover;"></div>
-                <div class="gallery-item" style="background: url('https://source.unsplash.com/random/600x600/?street,san-telmo') no-repeat center center/cover;"></div>
-                <div class="gallery-item" style="background: url('https://source.unsplash.com/random/600x600/?hostel,bedroom') no-repeat center center/cover;"></div>
+                <div class="gallery-item" style="background: url('https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80') no-repeat center center/cover;"></div>
+                <div class="gallery-item" style="background: url('https://images.unsplash.com/photo-1541976590-713941681591?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80') no-repeat center center/cover;"></div>
+                <div class="gallery-item" style="background: url('https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;"></div>
+                <div class="gallery-item" style="background: url('https://images.unsplash.com/photo-1590077428593-a55bb07c4665?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80') no-repeat center center/cover;"></div>
+                <div class="gallery-item" style="background: url('https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80') no-repeat center center/cover;"></div>
+                <div class="gallery-item" style="background: url('https://images.unsplash.com/photo-1590077428593-a55bb07c4665?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80') no-repeat center center/cover;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Lo que dicen nuestros huéspedes</h2>
+            <p class="section-subtitle">Experiencias reales de viajeros que han vivido San Telmo con nosotros</p>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Mi estadía en Casa Telmo fue increíble. Noe y su equipo me hicieron sentir como en casa y me conectaron con experiencias que nunca hubiera encontrado por mi cuenta."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar" style="background: url('https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80') no-repeat center center/cover;"></div>
+                        <div>
+                            <strong>María González</strong>
+                            <div>España</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "La milonga a la que me llevaron fue una experiencia única. No era un show para turistas, era el tango real. ¡Volveré seguro!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar" style="background: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80') no-repeat center center/cover;"></div>
+                        <div>
+                            <strong>Carlos Silva</strong>
+                            <div>Brasil</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "El asado en una casa de familia fue el punto culminante de mi viaje. Conocí gente local, comí increíble y me sentí parte de Buenos Aires."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar" style="background: url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;"></div>
+                        <div>
+                            <strong>Laura Mendes</strong>
+                            <div>Portugal</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -518,12 +731,14 @@
     <!-- Promociones -->
     <section class="promotions">
         <div class="container">
-            <h2 class="section-title">Promociones</h2>
+            <h2 class="section-title">Promociones Especiales</h2>
+            <p class="section-subtitle">Aprovechá nuestras ofertas para vivir una experiencia completa en Buenos Aires</p>
             <div class="promo-banner">
                 <h3>¡Experiencia completa en Buenos Aires!</h3>
                 <p>Reservá 3 noches o más y obtené un 15% de descuento en todas las experiencias de Experience Baires</p>
                 <div class="promo-code">CasaTelmo15</div>
                 <p>Válido hasta fin de mes. No acumulable con otras promociones.</p>
+                <a href="#contacto" class="btn" style="margin-top: 1.5rem;">Consultar disponibilidad</a>
             </div>
         </div>
     </section>
@@ -532,37 +747,45 @@
     <section class="contact" id="contacto">
         <div class="container">
             <h2 class="section-title">Contacto</h2>
+            <p class="section-subtitle">¿Tenés dudas? Escribinos y te ayudamos a planificar tu estadía en Buenos Aires</p>
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-item">
-                        <div class="contact-icon">📍</div>
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <div>
                             <h3>Dirección</h3>
                             <p>San Telmo, Buenos Aires, Argentina</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">📞</div>
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
                         <div>
                             <h3>Teléfono</h3>
                             <p>+54 11 1234-5678 (Provisorio)</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">✉️</div>
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                         <div>
                             <h3>Email</h3>
                             <p>info@casatelmo.com (Provisorio)</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">🌐</div>
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
                         <div>
-                            <h3>Redes Sociales</h3>
+                            <h3>Horarios de atención</h3>
+                            <p>Lunes a Domingo: 8:00 - 22:00</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-hashtag"></i></div>
+                        <div>
+                            <h3>Seguinos en redes</h3>
                             <div class="social-links">
-                                <a href="https://www.instagram.com/casatelmo.arg/" class="social-link">IG</a>
-                                <a href="#" class="social-link">FB</a>
-                                <a href="#" class="social-link">TW</a>
+                                <a href="https://www.instagram.com/casatelmo.arg/" class="social-link"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
                             </div>
                         </div>
                     </div>
@@ -572,6 +795,12 @@
                         <input type="text" placeholder="Nombre completo" required>
                         <input type="email" placeholder="Email" required>
                         <input type="tel" placeholder="Teléfono">
+                        <select required>
+                            <option value="" disabled selected>Tipo de consulta</option>
+                            <option value="reserva">Reserva</option>
+                            <option value="experiencia">Experiencias</option>
+                            <option value="general">Consulta general</option>
+                        </select>
                         <textarea placeholder="Mensaje" rows="5" required></textarea>
                         <button type="submit" class="btn">Enviar mensaje</button>
                     </form>
@@ -587,6 +816,11 @@
                 <div class="footer-section">
                     <h3>Casa Telmo</h3>
                     <p>Un hostel auténtico en el corazón de San Telmo, donde la cultura porteña cobra vida. Tu hogar en Buenos Aires.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/casatelmo.arg/" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                    </div>
                 </div>
                 <div class="footer-section">
                     <h3>Enlaces rápidos</h3>
@@ -601,7 +835,7 @@
                 <div class="footer-section">
                     <h3>Socios</h3>
                     <p>En alianza con <strong>Experience Baires</strong> para ofrecerte las mejores experiencias locales.</p>
-                    <a href="https://experiencebaires.com/collections" class="btn" style="margin-top: 1rem; background-color: var(--color-accent);">Ver experiencias</a>
+                    <a href="https://experiencebaires.com/collections" class="btn" style="margin-top: 1rem; background-color: var(--color-accent); padding: 0.7rem 1.5rem;">Ver experiencias</a>
                 </div>
             </div>
             <div class="copyright">
