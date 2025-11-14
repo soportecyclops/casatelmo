@@ -6,118 +6,1263 @@
     <title>Casa Telmo - Casa Boutique en San Telmo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Estilos anteriores se mantienen igual */
-        /* ... */
+        /* Fuentes y colores base */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap');
         
-        .gallery-fallback {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-            margin-top: 2rem;
+        :root {
+            --color-primary: #A67C52;
+            --color-secondary: #C9A96E;
+            --color-accent: #B56551;
+            --color-dark: #4A4A4A;
+            --color-light: #F8F5F2;
+            --color-medium: #D1C6B8;
+            --color-white: #FFFFFF;
+            --font-tango: 'Montserrat', sans-serif;
+            --font-text: 'Open Sans', sans-serif;
         }
         
-        .fallback-text {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-text);
+            color: var(--color-dark);
+            background-color: var(--color-light);
+            line-height: 1.6;
+        }
+        
+        /* Selector de idioma */
+        .language-selector {
+            position: absolute;
+            top: 1.2rem;
+            right: 1rem;
+            z-index: 101;
+        }
+        
+        .lang-btn {
+            background: transparent;
+            border: 1px solid var(--color-primary);
+            color: var(--color-primary);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: var(--font-tango);
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+        
+        .lang-btn:hover {
+            background-color: var(--color-primary);
+            color: white;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--color-white);
+            color: var(--color-dark);
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: var(--font-tango);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--color-accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.8rem;
+        }
+        
+        nav ul li a {
+            color: var(--color-dark);
+            text-decoration: none;
+            font-family: var(--font-tango);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--color-accent);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--color-accent);
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://i.postimg.cc/3Jz0Z4yN/hero-casa-telmo.jpg') no-repeat center center/cover;
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 1rem;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-family: var(--font-tango);
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+            font-weight: 300;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--color-accent);
+            color: white;
+            padding: 0.9rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-family: var(--font-tango);
+            font-weight: 600;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn:hover {
+            background-color: var(--color-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        
+        .btn-whatsapp {
+            background-color: #25D366;
+            margin-left: 1rem;
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid white;
+            margin-left: 1rem;
+        }
+        
+        .btn-secondary:hover {
+            background-color: white;
+            color: var(--color-dark);
+        }
+        
+        /* Secciones generales */
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-family: var(--font-tango);
+            font-size: 2.2rem;
+            color: var(--color-primary);
+            font-weight: 600;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--color-accent);
+            margin: 0.8rem auto;
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
             color: var(--color-dark);
             font-size: 1.1rem;
+            font-weight: 300;
+        }
+        
+        /* Sobre Nosotros */
+        .about {
+            background-color: var(--color-white);
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            height: 450px;
+            background: url('https://i.postimg.cc/3Jz0Z4yN/hero-casa-telmo.jpg') no-repeat center center/cover;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        /* Características */
+        .features {
+            background-color: var(--color-light);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background-color: var(--color-white);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--color-accent);
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-card h3 {
+            font-family: var(--font-tango);
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+        
+        /* Espacios */
+        .spaces {
+            background-color: var(--color-white);
+        }
+        
+        .spaces-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .space-card {
+            background-color: var(--color-light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+        
+        .space-image {
+            height: 200px;
+            background-color: var(--color-medium);
+        }
+        
+        .space-content {
+            padding: 1.5rem;
+        }
+        
+        .space-content h3 {
+            font-family: var(--font-tango);
+            margin-bottom: 0.8rem;
+            color: var(--color-primary);
+        }
+        
+        /* Normas - Modal */
+        .rules {
+            background-color: var(--color-light);
+            text-align: center;
+        }
+        
+        .rules-btn {
+            background-color: var(--color-white);
+            color: var(--color-dark);
+            border: 2px solid var(--color-medium);
+        }
+        
+        .rules-btn:hover {
+            background-color: var(--color-medium);
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        
+        .modal-content {
+            background-color: var(--color-white);
+            margin: 5% auto;
+            padding: 2.5rem;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 700px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--color-dark);
+            transition: color 0.3s;
+        }
+        
+        .close-modal:hover {
+            color: var(--color-accent);
+        }
+        
+        .rules-list {
+            list-style: none;
+            text-align: left;
+            margin-top: 1.5rem;
+        }
+        
+        .rules-list li {
+            margin-bottom: 1.2rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .rules-list li:before {
+            content: '•';
+            color: var(--color-accent);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -0.3rem;
+        }
+        
+        .rules-note {
+            background-color: rgba(181, 101, 81, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            border-left: 4px solid var(--color-accent);
+        }
+        
+        /* Galería */
+        .gallery {
+            background-color: var(--color-white);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            height: 280px;
+            background-color: var(--color-medium);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+        
+        /* Reseñas de Airbnb */
+        .reviews {
+            background-color: var(--color-light);
+        }
+        
+        .reviews-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+            margin-right: 1.5rem;
+        }
+        
+        .rating-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--color-primary);
+            margin-right: 0.5rem;
+        }
+        
+        .rating-stars {
+            color: var(--color-accent);
+            font-size: 1.2rem;
+        }
+        
+        .review-count {
+            color: var(--color-dark);
+            font-size: 1.1rem;
+        }
+        
+        .review-categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .review-category {
+            text-align: center;
+            min-width: 150px;
+        }
+        
+        .category-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--color-dark);
+        }
+        
+        .category-rating {
+            color: var(--color-accent);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background-color: var(--color-white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .testimonial-text:before {
+            content: """;
+            font-size: 3rem;
+            color: var(--color-medium);
+            position: absolute;
+            top: -1rem;
+            left: -0.5rem;
+            opacity: 0.3;
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--color-medium);
+            margin-right: 1rem;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        /* Contacto */
+        .contact {
+            background-color: var(--color-dark);
+            color: var(--color-light);
+        }
+        
+        .contact .section-title {
+            color: var(--color-white);
+        }
+        
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+        
+        .contact-info, .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-item {
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-icon {
+            margin-right: 1.2rem;
+            color: var(--color-secondary);
+            font-size: 1.3rem;
+            width: 24px;
+            text-align: center;
+        }
+        
+        .contact-form input, .contact-form textarea, .contact-form select {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1.2rem;
+            border: none;
+            border-radius: 8px;
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            font-family: var(--font-text);
+            transition: background-color 0.3s;
+        }
+        
+        .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus {
+            background-color: rgba(255,255,255,0.15);
+            outline: none;
+        }
+        
+        .contact-form input::placeholder, .contact-form textarea::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+        
+        /* WhatsApp Fixed Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--color-dark);
+            color: var(--color-light);
+            padding: 4rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-section h3 {
+            font-family: var(--font-tango);
+            margin-bottom: 1.5rem;
+            color: var(--color-secondary);
+            position: relative;
+            padding-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--color-accent);
+            border-radius: 2px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            transition: all 0.3s;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            background-color: var(--color-accent);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: var(--color-medium);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .language-selector {
+                position: static;
+                text-align: center;
+                margin-top: 1rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1.5rem;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .btn-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-whatsapp, .btn-secondary {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .modal-content {
+                padding: 1.5rem;
+                margin: 10% auto;
+            }
+            
+            .reviews-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .rating {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- ... resto del código ... -->
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/5491131110201?text=Hola!%20Me%20interesa%20saber%20más%20sobre%20Casa%20Telmo" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="language-selector">
+                <button class="lang-btn" id="langToggle">EN</button>
+            </div>
+            <div class="header-content">
+                <div class="logo"><i class="fas fa-home"></i>Casa Telmo</div>
+                <nav>
+                    <ul>
+                        <li><a href="#inicio" data-es="Inicio" data-en="Home">Inicio</a></li>
+                        <li><a href="#sobre-nosotros" data-es="Nosotros" data-en="About">Nosotros</a></li>
+                        <li><a href="#caracteristicas" data-es="Características" data-en="Features">Características</a></li>
+                        <li><a href="#galeria" data-es="Galería" data-en="Gallery">Galería</a></li>
+                        <li><a href="#reseñas" data-es="Reseñas" data-en="Reviews">Reseñas</a></li>
+                        <li><a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-content">
+                <h1 data-es="Viví San Telmo como un local" data-en="Experience San Telmo Like a Local">Viví San Telmo como un local</h1>
+                <p data-es="Una casa boutique auténtica en el corazón del casco histórico de Buenos Aires, donde el tango, el arte y la bohemia se encuentran." data-en="An authentic boutique house in the heart of Buenos Aires' historic district, where tango, art and bohemian culture meet.">Una casa boutique auténtica en el corazón del casco histórico de Buenos Aires, donde el tango, el arte y la bohemia se encuentran.</p>
+                <div class="btn-container">
+                    <a href="#contacto" class="btn" data-es="Consultar disponibilidad" data-en="Check Availability">Consultar disponibilidad</a>
+                    <a href="https://wa.me/5491131110201?text=Hola!%20Me%20interesa%20saber%20más%20sobre%20Casa%20Telmo" class="btn btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> <span data-es="WhatsApp" data-en="WhatsApp">WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nosotros -->
+    <section class="about" id="sobre-nosotros">
+        <div class="container">
+            <h2 class="section-title" data-es="Sobre Nosotros" data-en="About Us">Sobre Nosotros</h2>
+            <p class="section-subtitle" data-es="Una casa boutique en el barrio más emblemático de Buenos Aires" data-en="A boutique house in the most emblematic neighborhood of Buenos Aires">Una casa boutique en el barrio más emblemático de Buenos Aires</p>
+            <div class="about-content">
+                <div class="about-text">
+                    <p data-es="Desde este alojamiento céntrico todo el grupo podrá tener fácil acceso a todo. En el corazón de San Telmo, a tan solo metros del mercado de San Telmo, donde disfrutarás del arte, comidas típicas y el tango." data-en="From this central accommodation, the whole group will have easy access to everything. In the heart of San Telmo, just meters from the San Telmo Market, where you'll enjoy art, typical food and tango.">Desde este alojamiento céntrico todo el grupo podrá tener fácil acceso a todo. En el corazón de San Telmo, a tan solo metros del mercado de San Telmo, donde disfrutarás del arte, comidas típicas y el tango.</p>
+                    <p data-es="En un edificio histórico súper tranquilo y amplio te ofrezco lugar en mi casa y la mejor predisposición para que tu estadía sea inolvidable ♥️🇦🇷" data-en="In a super quiet and spacious historic building, I offer you a place in my home and the best willingness to make your stay unforgettable ♥️🇦🇷">En un edificio histórico súper tranquilo y amplio te ofrezco lugar en mi casa y la mejor predisposición para que tu estadía sea inolvidable ♥️🇦🇷</p>
+                    <p data-es="Ubicado en uno de los barrios más visitados de la ciudad de Buenos Aires, podrás ir caminando a todos los rincones de San Telmo. Se ingresa a un hall de distribución con acceso a 2 habitaciones privadas. Los espacios compartidos son: comedor, cocina, 1 baño completo y lavandería." data-en="Located in one of the most visited neighborhoods in Buenos Aires, you can walk to all corners of San Telmo. You enter through a distribution hall with access to 2 private rooms. The shared spaces are: dining room, kitchen, 1 full bathroom and laundry.">Ubicado en uno de los barrios más visitados de la ciudad de Buenos Aires, podrás ir caminando a todos los rincones de San Telmo. Se ingresa a un hall de distribución con acceso a 2 habitaciones privadas. Los espacios compartidos son: comedor, cocina, 1 baño completo y lavandería.</p>
+                    <div class="btn-container">
+                        <a href="https://wa.me/5491131110201?text=Hola!%20Me%20interesa%20saber%20más%20sobre%20Casa%20Telmo" class="btn btn-whatsapp" target="_blank" style="margin-top: 1rem;">
+                            <i class="fab fa-whatsapp"></i> <span data-es="Consultar por WhatsApp" data-en="Contact via WhatsApp">Consultar por WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="about-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Características -->
+    <section class="features" id="caracteristicas">
+        <div class="container">
+            <h2 class="section-title" data-es="Lo que ofrecemos" data-en="What We Offer">Lo que ofrecemos</h2>
+            <p class="section-subtitle" data-es="Comodidades y servicios para hacer tu estadía perfecta" data-en="Amenities and services to make your stay perfect">Comodidades y servicios para hacer tu estadía perfecta</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-wifi"></i></div>
+                    <h3 data-es="WiFi Gratuito" data-en="Free WiFi">WiFi Gratuito</h3>
+                    <p data-es="Conexión a internet de alta velocidad en toda la propiedad" data-en="High-speed internet connection throughout the property">Conexión a internet de alta velocidad en toda la propiedad</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-tshirt"></i></div>
+                    <h3 data-es="Lavandería" data-en="Laundry">Lavandería</h3>
+                    <p data-es="Lavadora disponible para que puedas lavar tu ropa durante tu estadía" data-en="Washing machine available so you can do your laundry during your stay">Lavadora disponible para que puedas lavar tu ropa durante tu estadía</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-utensils"></i></div>
+                    <h3 data-es="Cocina Equipada" data-en="Equipped Kitchen">Cocina Equipada</h3>
+                    <p data-es="Cocina completa con heladera, horno, cafetera y todos los utensilios" data-en="Full kitchen with refrigerator, oven, coffee maker and all utensils">Cocina completa con heladera, horno, cafetera y todos los utensilios</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-temperature-high"></i></div>
+                    <h3 data-es="Calefacción" data-en="Heating">Calefacción</h3>
+                    <p data-es="Sistema de calefacción para mantenerte cómodo durante los días fríos" data-en="Heating system to keep you comfortable during cold days">Sistema de calefacción para mantenerte cómodo durante los días fríos</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3 data-es="Seguridad" data-en="Security">Seguridad</h3>
+                    <p data-es="Cámaras de seguridad exteriores para tu tranquilidad" data-en="Outdoor security cameras for your peace of mind">Cámaras de seguridad exteriores para tu tranquilidad</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-user-check"></i></div>
+                    <h3 data-es="Recepción" data-en="Reception">Recepción</h3>
+                    <p data-es="Te recibimos personalmente y estamos disponibles para ayudarte" data-en="We welcome you personally and are available to help you">Te recibimos personalmente y estamos disponibles para ayudarte</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Espacios -->
+    <section class="spaces">
+        <div class="container">
+            <h2 class="section-title" data-es="Nuestros Espacios" data-en="Our Spaces">Nuestros Espacios</h2>
+            <p class="section-subtitle" data-es="Conocé cada rincón de nuestra casa boutique" data-en="Discover every corner of our boutique house">Conocé cada rincón de nuestra casa boutique</p>
+            <div class="spaces-grid">
+                <div class="space-card">
+                    <div class="space-image" style="background: url('https://i.postimg.cc/3Jz0Z4yN/hero-casa-telmo.jpg') no-repeat center center/cover;"></div>
+                    <div class="space-content">
+                        <h3 data-es="Habitaciones Privadas" data-en="Private Rooms">Habitaciones Privadas</h3>
+                        <p data-es="Dos habitaciones privadas con capacidad máxima para 4 huéspedes. Cada habitación incluye camas cómodas, ropa de cama y espacio para guardar tus pertenencias." data-en="Two private rooms with maximum capacity for 4 guests. Each room includes comfortable beds, bedding and storage space for your belongings.">Dos habitaciones privadas con capacidad máxima para 4 huéspedes. Cada habitación incluye camas cómodas, ropa de cama y espacio para guardar tus pertenencias.</p>
+                    </div>
+                </div>
+                <div class="space-card">
+                    <div class="space-image" style="background: url('https://i.postimg.cc/XqJ3q6y2/cocina-casa-telmo.jpg') no-repeat center center/cover;"></div>
+                    <div class="space-content">
+                        <h3 data-es="Cocina Completamente Equipada" data-en="Fully Equipped Kitchen">Cocina Completamente Equipada</h3>
+                        <p data-es="Cocina compartida con heladera, horno, cafetera, pava eléctrica y todos los utensilios necesarios para preparar tus comidas." data-en="Shared kitchen with refrigerator, oven, coffee maker, electric kettle and all necessary utensils to prepare your meals.">Cocina compartida con heladera, horno, cafetera, pava eléctrica y todos los utensilios necesarios para preparar tus comidas.</p>
+                    </div>
+                </div>
+                <div class="space-card">
+                    <div class="space-image" style="background: url('https://i.postimg.cc/8z8n8z8n/sala-casa-telmo.jpg') no-repeat center center/cover;"></div>
+                    <div class="space-content">
+                        <h3 data-es="Área de Lounge y Trabajo" data-en="Lounge and Work Area">Área de Lounge y Trabajo</h3>
+                        <p data-es="Espacio cómodo para relajarte, socializar o trabajar con conexión WiFi gratuita y ambiente acogedor." data-en="Comfortable space to relax, socialize or work with free WiFi and cozy atmosphere.">Espacio cómodo para relajarte, socializar o trabajar con conexión WiFi gratuita y ambiente acogedor.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Normas de Convivencia -->
+    <section class="rules" id="normas">
+        <div class="container">
+            <h2 class="section-title" data-es="Para una estadía perfecta" data-en="For a Perfect Stay">Para una estadía perfecta</h2>
+            <p class="section-subtitle" data-es="Queremos que todos nuestros huéspedes disfruten de su estadía" data-en="We want all our guests to enjoy their stay">Queremos que todos nuestros huéspedes disfruten de su estadía</p>
+            <button class="btn rules-btn" id="openRulesModal" data-es="Ver normas de convivencia" data-en="View House Rules">Ver normas de convivencia</button>
+        </div>
+    </section>
+
+    <!-- Modal de Normas -->
+    <div class="modal" id="rulesModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeRulesModal">&times;</span>
+            <h2 class="section-title" data-es="Normas de Convivencia" data-en="House Rules">Normas de Convivencia</h2>
+            <p data-es="Para garantizar una experiencia agradable para todos nuestros huéspedes, te pedimos que respetes las siguientes normas:" data-en="To ensure a pleasant experience for all our guests, we ask you to respect the following rules:">Para garantizar una experiencia agradable para todos nuestros huéspedes, te pedimos que respetes las siguientes normas:</p>
+            
+            <ul class="rules-list">
+                <li data-es="<strong>Capacidad máxima:</strong> 4 huéspedes en total" data-en="<strong>Maximum capacity:</strong> 4 guests total"><strong>Capacidad máxima:</strong> 4 huéspedes en total</li>
+                <li data-es="<strong>Horario de silencio:</strong> Desde las 23:00 hasta las 8:00 todos los días" data-en="<strong>Quiet hours:</strong> From 11:00 PM to 8:00 AM every day"><strong>Horario de silencio:</strong> Desde las 23:00 hasta las 8:00 todos los días</li>
+                <li data-es="<strong>Mascotas:</strong> Se permiten mascotas (consulta condiciones)" data-en="<strong>Pets:</strong> Pets allowed (check conditions)"><strong>Mascotas:</strong> Se permiten mascotas (consulta condiciones)</li>
+                <li data-es="<strong>Limpieza:</strong> Servicio semanal de limpieza de áreas comunes y habitación para estancias largas" data-en="<strong>Cleaning:</strong> Weekly cleaning service for common areas and room for long stays"><strong>Limpieza:</strong> Servicio semanal de limpieza de áreas comunes y habitación para estancias largas</li>
+                <li data-es="<strong>No se permiten:</strong> Fiestas o reuniones dentro del apartamento" data-en="<strong>Not allowed:</strong> Parties or gatherings in the apartment"><strong>No se permiten:</strong> Fiestas o reuniones dentro del apartamento</li>
+                <li data-es="<strong>Prohibido:</strong> Fumar dentro del apartamento y consumo de drogas" data-en="<strong>Prohibited:</strong> Smoking inside the apartment and drug use"><strong>Prohibido:</strong> Fumar dentro del apartamento y consumo de drogas</li>
+                <li data-es="<strong>No se permiten visitas</strong> adicionales a los huéspedes registrados" data-en="<strong>No visitors</strong> allowed beyond registered guests"><strong>No se permiten visitas</strong> adicionales a los huéspedes registrados</li>
+            </ul>
+            
+            <div class="rules-note">
+                <p data-es="Respetar y preservar la armonía, el bienestar y la seguridad de la casa, manteniendo un vínculo de respeto mutuo con los demás huéspedes." data-en="Respect and preserve the harmony, well-being and safety of the house, maintaining a relationship of mutual respect with other guests.">Respetar y preservar la armonía, el bienestar y la seguridad de la casa, manteniendo un vínculo de respeto mutuo con los demás huéspedes.</p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <p data-es="¿Buscás una habitación con baño privado?" data-en="Looking for a room with private bathroom?">¿Buscás una habitación con baño privado?</p>
+                <a href="https://www.airbnb.mx/rooms/1508729484317478977?viralityEntryPoint=1&s=76" class="btn" target="_blank" data-es="Ver opción con baño privado" data-en="View option with private bathroom">Ver opción con baño privado</a>
+            </div>
+        </div>
+    </div>
 
     <!-- Galería -->
     <section class="gallery" id="galeria">
         <div class="container">
             <h2 class="section-title" data-es="Nuestro Espacio" data-en="Our Space">Nuestro Espacio</h2>
             <p class="section-subtitle" data-es="Conocé nuestra casa y los rincones de San Telmo que nos inspiran cada día" data-en="Discover our house and the corners of San Telmo that inspire us every day">Conocé nuestra casa y los rincones de San Telmo que nos inspiran cada día</p>
-            
             <div class="gallery-grid">
-                <!-- Imágenes con respaldo -->
-                <div class="gallery-item" style="background: url('https://i.postimg.cc/3Jz0Z4yN/hero-casa-telmo.jpg') no-repeat center center/cover;">
-                    <div class="image-fallback" style="display: none; text-align: center; padding: 2rem; color: var(--color-medium);">
-                        <i class="fas fa-image" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-                        <p data-es="Imagen no disponible" data-en="Image not available">Imagen no disponible</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-item" style="background: url('https://i.postimg.cc/XqJ3q6y2/cocina-casa-telmo.jpg') no-repeat center center/cover;">
-                    <div class="image-fallback" style="display: none; text-align: center; padding: 2rem; color: var(--color-medium);">
-                        <i class="fas fa-image" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-                        <p data-es="Imagen no disponible" data-en="Image not available">Imagen no disponible</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-item" style="background: url('https://i.postimg.cc/8z8n8z8n/sala-casa-telmo.jpg') no-repeat center center/cover;">
-                    <div class="image-fallback" style="display: none; text-align: center; padding: 2rem; color: var(--color-medium);">
-                        <i class="fas fa-image" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-                        <p data-es="Imagen no disponible" data-en="Image not available">Imagen no disponible</p>
-                    </div>
-                </div>
-                
-                <!-- Más imágenes con respaldo -->
-                <div class="gallery-item" style="background: url('https://i.postimg.cc/3Jz0Z4yN/hero-casa-telmo.jpg') no-repeat center center/cover;">
-                    <div class="image-fallback" style="display: none; text-align: center; padding: 2rem; color: var(--color-medium);">
-                        <i class="fas fa-image" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-                        <p data-es="Imagen no disponible" data-en="Image not available">Imagen no disponible</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-item" style="background: url('https://i.postimg.cc/XqJ3q6y2/cocina-casa-telmo.jpg') no-repeat center center/cover;">
-                    <div class="image-fallback" style="display: none; text-align: center; padding: 2rem; color: var(--color-medium);">
-                        <i class="fas fa-image" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-                        <p data-es="Imagen no disponible" data-en="Image not available">Imagen no disponible</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-item" style="background: url('https://i.postimg.cc/8z8n8z8n/sala-casa-telmo.jpg') no-repeat center center/cover;">
-                    <div class="image-fallback" style="display: none; text-align: center; padding: 2rem; color: var(--color-medium);">
-                        <i class="fas fa-image" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-                        <p data-es="Imagen no disponible" data-en="Image not available">Imagen no disponible</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Mensaje de respaldo si todas las imágenes fallan -->
-            <div class="gallery-fallback" id="galleryFallback" style="display: none;">
-                <i class="fas fa-images" style="font-size: 4rem; color: var(--color-medium);"></i>
-                <p class="fallback-text" data-es="Próximamente: Galería de imágenes de Casa Telmo" data-en="Coming soon: Casa Telmo image gallery">Próximamente: Galería de imágenes de Casa Telmo</p>
-                <a href="#contacto" class="btn" data-es="Solicitar más fotos" data-en="Request more photos">Solicitar más fotos</a>
+                <div class="gallery-item" style="background: url('https://i.postimg.cc/3Jz0Z4yN/hero-casa-telmo.jpg') no-repeat center center/cover;"></div>
+                <div class="gallery-item" style="background: url('https://i.postimg.cc/XqJ3q6y2/cocina-casa-telmo.jpg') no-repeat center center/cover;"></div>
+                <div class="gallery-item" style="background: url('https://i.postimg.cc/8z8n8z8n/sala-casa-telmo.jpg') no-repeat center center/cover;"></div>
+                <div class="gallery-item" style="background: url('https://i.postimg.cc/8z8n8z8n/sala-casa-telmo.jpg') no-repeat center center/cover;"></div>
+                <div class="gallery-item" style="background: url('https://i.postimg.cc/XqJ3q6y2/cocina-casa-telmo.jpg') no-repeat center center/cover;"></div>
+                <div class="gallery-item" style="background: url('https://i.postimg.cc/3Jz0Z4yN/hero-casa-telmo.jpg') no-repeat center center/cover;"></div>
             </div>
         </div>
     </section>
 
+    <!-- Reseñas de Airbnb -->
+    <section class="reviews" id="reseñas">
+        <div class="container">
+            <h2 class="section-title" data-es="Experiencias de nuestros huéspedes" data-en="Our Guests' Experiences">Experiencias de nuestros huéspedes</h2>
+            
+            <div class="reviews-header">
+                <div class="rating">
+                    <div class="rating-number">4.89</div>
+                    <div class="rating-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="review-count" data-es="· 18 comentarios" data-en="· 18 reviews">· 18 comentarios</div>
+            </div>
+            
+            <div class="review-categories">
+                <div class="review-category">
+                    <div class="category-name" data-es="Limpieza" data-en="Cleanliness">Limpieza</div>
+                    <div class="category-rating">4.9</div>
+                </div>
+                <div class="review-category">
+                    <div class="category-name" data-es="Comunicación" data-en="Communication">Comunicación</div>
+                    <div class="category-rating">4.9</div>
+                </div>
+                <div class="review-category">
+                    <div class="category-name" data-es="Llegada" data-en="Check-in">Llegada</div>
+                    <div class="category-rating">4.8</div>
+                </div>
+                <div class="review-category">
+                    <div class="category-name" data-es="Ubicación" data-en="Location">Ubicación</div>
+                    <div class="category-rating">5.0</div>
+                </div>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text" data-es="El departamento es hermoso, muy bien ubicado y con todo lo necesario para una estadía cómoda. La comunicación con Noe fue excelente, siempre atenta a nuestras consultas. Sin duda volvería!" data-en="The apartment is beautiful, very well located and with everything needed for a comfortable stay. Communication with Noe was excellent, always attentive to our inquiries. I would definitely return!">
+                        El departamento es hermoso, muy bien ubicado y con todo lo necesario para una estadía cómoda. La comunicación con Noe fue excelente, siempre atenta a nuestras consultas. Sin duda volvería!
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar" style="background: url('https://i.postimg.cc/8CxJ8J8J/huesped-1.jpg') no-repeat center center/cover;"></div>
+                        <div>
+                            <strong>María</strong>
+                            <div data-es="Enero 2024" data-en="January 2024">Enero 2024</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text" data-es="Excelente ubicación, a pocas cuadras de todos los atractivos de San Telmo. El lugar es tal cual se ve en las fotos, muy limpio y acogedor. Noe fue muy amable y nos dio excelentes recomendaciones." data-en="Excellent location, just a few blocks from all the attractions of San Telmo. The place is exactly as it appears in the photos, very clean and cozy. Noe was very kind and gave us excellent recommendations.">
+                        Excelente ubicación, a pocas cuadras de todos los atractivos de San Telmo. El lugar es tal cual se ve en las fotos, muy limpio y acogedor. Noe fue muy amable y nos dio excelentes recomendaciones.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar" style="background: url('https://i.postimg.cc/8CxJ8J8J/huesped-1.jpg') no-repeat center center/cover;"></div>
+                        <div>
+                            <strong>Carlos</strong>
+                            <div data-es="Diciembre 2023" data-en="December 2023">Diciembre 2023</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text" data-es="Nos encantó la estadía! El departamento es muy lindo, cómodo y está en la mejor ubicación de San Telmo. Pudimos caminar a todos lados. Noe es una anfitriona excelente, siempre dispuesta a ayudar." data-en="We loved our stay! The apartment is very nice, comfortable and in the best location in San Telmo. We were able to walk everywhere. Noe is an excellent host, always willing to help.">
+                        Nos encantó la estadía! El departamento es muy lindo, cómodo y está en la mejor ubicación de San Telmo. Pudimos caminar a todos lados. Noe es una anfitriona excelente, siempre dispuesta a ayudar.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar" style="background: url('https://i.postimg.cc/8CxJ8J8J/huesped-1.jpg') no-repeat center center/cover;"></div>
+                        <div>
+                            <strong>Ana</strong>
+                            <div data-es="Noviembre 2023" data-en="November 2023">Noviembre 2023</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text" data-es="El lugar es ideal para conocer San Telmo. Está a pasos del mercado y de todos los bares y restaurantes. Muy buena comunicación con la anfitriona. Todo impecable y muy cómodo." data-en="The place is ideal for getting to know San Telmo. It's steps away from the market and all the bars and restaurants. Very good communication with the host. Everything impeccable and very comfortable.">
+                        El lugar es ideal para conocer San Telmo. Está a pasos del mercado y de todos los bares y restaurantes. Muy buena comunicación con la anfitriona. Todo impecable y muy cómodo.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar" style="background: url('https://i.postimg.cc/8CxJ8J8J/huesped-1.jpg') no-repeat center center/cover;"></div>
+                        <div>
+                            <strong>Javier</strong>
+                            <div data-es="Octubre 2023" data-en="October 2023">Octubre 2023</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text" data-es="Inmejorable relación calidad-precio. El departamento tiene todo lo necesario y la ubicación es perfecta. Noe es muy atenta y responde rápidamente. Volveríamos sin dudarlo!" data-en="Unbeatable value for money. The apartment has everything needed and the location is perfect. Noe is very attentive and responds quickly. We would return without hesitation!">
+                        Inmejorable relación calidad-precio. El departamento tiene todo lo necesario y la ubicación es perfecta. Noe es muy atenta y responde rápidamente. Volveríamos sin dudarlo!
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar" style="background: url('https://i.postimg.cc/8CxJ8J8J/huesped-1.jpg') no-repeat center center/cover;"></div>
+                        <div>
+                            <strong>Laura</strong>
+                            <div data-es="Septiembre 2023" data-en="September 2023">Septiembre 2023</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text" data-es="Hermoso departamento, superó nuestras expectativas. Muy luminoso, cómodo y con todos los amenities. La zona es increíble, llena de vida y cultura. Noe es una anfitriona excepcional." data-en="Beautiful apartment, exceeded our expectations. Very bright, comfortable and with all amenities. The area is incredible, full of life and culture. Noe is an exceptional host.">
+                        Hermoso departamento, superó nuestras expectativas. Muy luminoso, cómodo y con todos los amenities. La zona es increíble, llena de vida y cultura. Noe es una anfitriona excepcional.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar" style="background: url('https://i.postimg.cc/8CxJ8J8J/huesped-1.jpg') no-repeat center center/cover;"></div>
+                        <div>
+                            <strong>Diego</strong>
+                            <div data-es="Agosto 2023" data-en="August 2023">Agosto 2023</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <h2 class="section-title" data-es="Contacto" data-en="Contact">Contacto</h2>
+            <p class="section-subtitle" data-es="¿Tenés dudas? Escribinos y te ayudamos a planificar tu estadía en Buenos Aires" data-en="Have questions? Write to us and we'll help you plan your stay in Buenos Aires">¿Tenés dudas? Escribinos y te ayudamos a planificar tu estadía en Buenos Aires</p>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h3 data-es="Dirección" data-en="Address">Dirección</h3>
+                            <p>San Telmo, Buenos Aires, Argentina</p>
+                            <p data-es="A metros del Mercado de San Telmo" data-en="Steps from San Telmo Market">A metros del Mercado de San Telmo</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                        <div>
+                            <h3>WhatsApp</h3>
+                            <p>+54 9 11 3111-0201</p>
+                            <a href="https://wa.me/5491131110201?text=Hola!%20Me%20interesa%20saber%20más%20sobre%20Casa%20Telmo" class="btn btn-whatsapp" style="padding: 0.7rem 1.5rem; margin-top: 0.5rem;" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-es="Escribinos ahora" data-en="Message us now">Escribinos ahora</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fab fa-instagram"></i></div>
+                        <div>
+                            <h3>Instagram</h3>
+                            <p>@casatelmo.ar</p>
+                            <a href="https://www.instagram.com/casatelmo.ar/" class="btn" style="background-color: #E1306C; padding: 0.7rem 1.5rem; margin-top: 0.5rem;" target="_blank">
+                                <i class="fab fa-instagram"></i> <span data-es="Seguinos" data-en="Follow us">Seguinos</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                        <div>
+                            <h3 data-es="Horarios de atención" data-en="Service Hours">Horarios de atención</h3>
+                            <p data-es="Lunes a Domingo: 8:00 - 22:00" data-en="Monday to Sunday: 8:00 AM - 10:00 PM">Lunes a Domingo: 8:00 - 22:00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <input type="text" placeholder="Nombre completo" data-placeholder-es="Nombre completo" data-placeholder-en="Full name" required>
+                        <input type="email" placeholder="Email" data-placeholder-es="Email" data-placeholder-en="Email" required>
+                        <input type="tel" placeholder="Teléfono (opcional)" data-placeholder-es="Teléfono (opcional)" data-placeholder-en="Phone (optional)">
+                        <select required>
+                            <option value="" disabled selected data-text-es="Tipo de consulta" data-text-en="Type of inquiry">Tipo de consulta</option>
+                            <option value="disponibilidad" data-text-es="Consultar disponibilidad" data-text-en="Check availability">Consultar disponibilidad</option>
+                            <option value="informacion" data-text-es="Más información" data-text-en="More information">Más información</option>
+                            <option value="general" data-text-es="Consulta general" data-text-en="General inquiry">Consulta general</option>
+                        </select>
+                        <textarea placeholder="Mensaje" data-placeholder-es="Mensaje" data-placeholder-en="Message" rows="5" required></textarea>
+                        <button type="submit" class="btn" data-es="Enviar mensaje" data-en="Send message">Enviar mensaje</button>
+                    </form>
+                    <div style="text-align: center; margin-top: 1.5rem;">
+                        <p data-es="¿Preferís contactarnos directamente por WhatsApp?" data-en="Prefer to contact us directly via WhatsApp?">¿Preferís contactarnos directamente por WhatsApp?</p>
+                        <a href="https://wa.me/5491131110201?text=Hola!%20Me%20interesa%20saber%20más%20sobre%20Casa%20Telmo" class="btn btn-whatsapp" target="_blank" style="margin-top: 0.5rem;">
+                            <i class="fab fa-whatsapp"></i> <span data-es="Chatear por WhatsApp" data-en="Chat via WhatsApp">Chatear por WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Casa Telmo</h3>
+                    <p data-es="Una casa boutique auténtica en el corazón de San Telmo, donde la cultura porteña cobra vida. Tu hogar en Buenos Aires." data-en="An authentic boutique house in the heart of San Telmo, where Porteño culture comes to life. Your home in Buenos Aires.">Una casa boutique auténtica en el corazón de San Telmo, donde la cultura porteña cobra vida. Tu hogar en Buenos Aires.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/casatelmo.ar/" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/5491131110201?text=Hola!%20Me%20interesa%20saber%20más%20sobre%20Casa%20Telmo" class="social-link" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3 data-es="Enlaces rápidos" data-en="Quick Links">Enlaces rápidos</h3>
+                    <ul>
+                        <li><a href="#inicio" data-es="Inicio" data-en="Home">Inicio</a></li>
+                        <li><a href="#sobre-nosotros" data-es="Sobre Nosotros" data-en="About">Sobre Nosotros</a></li>
+                        <li><a href="#caracteristicas" data-es="Características" data-en="Features">Características</a></li>
+                        <li><a href="#galeria" data-es="Galería" data-en="Gallery">Galería</a></li>
+                        <li><a href="#reseñas" data-es="Reseñas" data-en="Reviews">Reseñas</a></li>
+                        <li><a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 data-es="Reservas" data-en="Bookings">Reservas</h3>
+                    <p data-es="Consultá disponibilidad y tarifas directamente con nosotros." data-en="Check availability and rates directly with us.">Consultá disponibilidad y tarifas directamente con nosotros.</p>
+                    <a href="https://wa.me/5491131110201?text=Hola!%20Me%20interesa%20saber%20más%20sobre%20Casa%20Telmo" class="btn btn-whatsapp" style="margin-top: 1rem; padding: 0.7rem 1.5rem;" target="_blank">
+                        <i class="fab fa-whatsapp"></i> <span data-es="Consultar por WhatsApp" data-en="Inquire via WhatsApp">Consultar por WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Casa Telmo. <span data-es="Todos los derechos reservados." data-en="All rights reserved.">Todos los derechos reservados.</span></p>
+            </div>
+        </div>
+    </footer>
+
     <script>
-        // Detectar imágenes que no cargan
-        document.addEventListener('DOMContentLoaded', function() {
-            const galleryItems = document.querySelectorAll('.gallery-item');
-            let loadedImages = 0;
+        // Sistema de traducción
+        let currentLang = 'es';
+        
+        document.getElementById('langToggle').addEventListener('click', function() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            toggleLanguage(currentLang);
+            this.textContent = currentLang === 'es' ? 'EN' : 'ES';
             
-            galleryItems.forEach(item => {
-                const bgImage = item.style.backgroundImage;
-                const imgUrl = bgImage.replace('url("', '').replace('")', '');
-                
-                const img = new Image();
-                img.onload = function() {
-                    loadedImages++;
-                };
-                img.onerror = function() {
-                    // Mostrar fallback para esta imagen
-                    const fallback = item.querySelector('.image-fallback');
-                    if (fallback) {
-                        fallback.style.display = 'block';
-                        item.style.background = 'var(--color-medium)';
+            // Cambiar el texto del WhatsApp según el idioma
+            const whatsappFloat = document.querySelector('.whatsapp-float');
+            if (currentLang === 'en') {
+                whatsappFloat.href = "https://wa.me/5491131110201?text=Hello!%20I'm%20interested%20in%20learning%20more%20about%20Casa%20Telmo";
+            } else {
+                whatsappFloat.href = "https://wa.me/5491131110201?text=Hola!%20Me%20interesa%20saber%20más%20sobre%20Casa%20Telmo";
+            }
+        });
+        
+        function toggleLanguage(lang) {
+            // Traducir elementos con atributos data-es y data-en
+            document.querySelectorAll('[data-es]').forEach(element => {
+                if (lang === 'es') {
+                    if (element.hasAttribute('data-es')) {
+                        if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                            element.placeholder = element.getAttribute('data-placeholder-es');
+                        } else if (element.tagName === 'OPTION') {
+                            element.textContent = element.getAttribute('data-text-es');
+                        } else {
+                            element.innerHTML = element.getAttribute('data-es');
+                        }
                     }
-                };
-                img.src = imgUrl;
-            });
-            
-            // Si ninguna imagen carga, mostrar mensaje general
-            setTimeout(() => {
-                if (loadedImages === 0) {
-                    document.getElementById('galleryFallback').style.display = 'flex';
+                } else {
+                    if (element.hasAttribute('data-en')) {
+                        if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                            element.placeholder = element.getAttribute('data-placeholder-en');
+                        } else if (element.tagName === 'OPTION') {
+                            element.textContent = element.getAttribute('data-text-en');
+                        } else {
+                            element.innerHTML = element.getAttribute('data-en');
+                        }
+                    }
                 }
-            }, 2000);
+            });
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const message = currentLang === 'es' 
+                ? '¡Gracias por tu mensaje! Te contactaremos a la brevedad.' 
+                : 'Thank you for your message! We will contact you shortly.';
+            alert(message);
+            this.reset();
+        });
+
+        // Modal functionality
+        const modal = document.getElementById('rulesModal');
+        const openBtn = document.getElementById('openRulesModal');
+        const closeBtn = document.getElementById('closeRulesModal');
+
+        openBtn.addEventListener('click', function() {
+            modal.style.display = 'block';
+        });
+
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
         });
     </script>
 </body>
