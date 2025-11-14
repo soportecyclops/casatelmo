@@ -34,12 +34,16 @@
             line-height: 1.6;
         }
         
-        /* Selector de idioma */
+        /* Selector de idioma - POSICIÓN CORREGIDA */
         .language-selector {
-            position: absolute;
+            position: fixed;
             top: 1.2rem;
             right: 1rem;
             z-index: 101;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 0.3rem;
+            border-radius: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
         .lang-btn {
@@ -141,7 +145,7 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images2.imgbox.com/2c/2c/3q3q3q3q_o.jpg') no-repeat center center/cover;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
             height: 85vh;
             display: flex;
             align-items: center;
@@ -274,7 +278,7 @@
             flex: 1;
             min-width: 300px;
             height: 450px;
-            background: url('https://images2.imgbox.com/2c/2c/3q3q3q3q_o.jpg') no-repeat center center/cover;
+            background: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1558&q=80') no-repeat center center/cover;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
@@ -718,9 +722,9 @@
         /* Responsive */
         @media (max-width: 768px) {
             .language-selector {
-                position: static;
-                text-align: center;
-                margin-top: 1rem;
+                position: fixed;
+                top: 1rem;
+                right: 1rem;
             }
             
             .header-content {
@@ -780,12 +784,14 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <!-- Selector de idioma - POSICIÓN CORREGIDA -->
+    <div class="language-selector">
+        <button class="lang-btn" id="langToggle">EN</button>
+    </div>
+
     <!-- Header -->
     <header>
         <div class="container">
-            <div class="language-selector">
-                <button class="lang-btn" id="langToggle">EN</button>
-            </div>
             <div class="header-content">
                 <div class="logo"><i class="fas fa-home"></i>Casa Telmo</div>
                 <nav>
@@ -834,7 +840,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="about-image" style="background: url('https://thumbs2.imgbox.com/a5/3c/e3V0S0O3_t.jpg') no-repeat center center/cover;"></div>
+                <div class="about-image" style="background: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1558&q=80') no-repeat center center/cover;"></div>
             </div>
         </div>
     </section>
@@ -886,21 +892,21 @@
             <p class="section-subtitle" data-es="Conocé cada rincón de nuestra casa boutique" data-en="Discover every corner of our boutique house">Conocé cada rincón de nuestra casa boutique</p>
             <div class="spaces-grid">
                 <div class="space-card">
-                    <div class="space-image" style="background: url('https://thumbs2.imgbox.com/77/f2/MR8pkuR0_t.jpg') no-repeat center center/cover;"></div>
+                    <div class="space-image" style="background: url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;"></div>
                     <div class="space-content">
                         <h3 data-es="Habitaciones Privadas" data-en="Private Rooms">Habitaciones Privadas</h3>
                         <p data-es="Dos habitaciones privadas con capacidad máxima para 4 huéspedes. Cada habitación incluye camas cómodas, ropa de cama y espacio para guardar tus pertenencias." data-en="Two private rooms with maximum capacity for 4 guests. Each room includes comfortable beds, bedding and storage space for your belongings.">Dos habitaciones privadas con capacidad máxima para 4 huéspedes. Cada habitación incluye camas cómodas, ropa de cama y espacio para guardar tus pertenencias.</p>
                     </div>
                 </div>
                 <div class="space-card">
-                    <div class="space-image" style="background: url('https://thumbs2.imgbox.com/4b/6a/6W0lK9Q9_t.jpg') no-repeat center center/cover;"></div>
+                    <div class="space-image" style="background: url('https://images.unsplash.com/photo-1556912167-f556f1f39fdf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;"></div>
                     <div class="space-content">
                         <h3 data-es="Cocina Completamente Equipada" data-en="Fully Equipped Kitchen">Cocina Completamente Equipada</h3>
                         <p data-es="Cocina compartida con heladera, horno, cafetera, pava eléctrica y todos los utensilios necesarios para preparar tus comidas." data-en="Shared kitchen with refrigerator, oven, coffee maker, electric kettle and all necessary utensils to prepare your meals.">Cocina compartida con heladera, horno, cafetera, pava eléctrica y todos los utensilios necesarios para preparar tus comidas.</p>
                     </div>
                 </div>
                 <div class="space-card">
-                    <div class="space-image" style="background: url('https://thumbs2.imgbox.com/77/f2/MR8pkuR0_t.jpg') no-repeat center center/cover;"></div>
+                    <div class="space-image" style="background: url('https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;"></div>
                     <div class="space-content">
                         <h3 data-es="Área de Lounge y Trabajo" data-en="Lounge and Work Area">Área de Lounge y Trabajo</h3>
                         <p data-es="Espacio cómodo para relajarte, socializar o trabajar con conexión WiFi gratuita y ambiente acogedor." data-en="Comfortable space to relax, socialize or work with free WiFi and cozy atmosphere.">Espacio cómodo para relajarte, socializar o trabajar con conexión WiFi gratuita y ambiente acogedor.</p>
@@ -953,12 +959,12 @@
             <h2 class="section-title" data-es="Nuestro Espacio" data-en="Our Space">Nuestro Espacio</h2>
             <p class="section-subtitle" data-es="Conocé nuestra casa y los rincones de San Telmo que nos inspiran cada día" data-en="Discover our house and the corners of San Telmo that inspire us every day">Conocé nuestra casa y los rincones de San Telmo que nos inspiran cada día</p>
             <div class="gallery-grid">
-                <div class="gallery-item" style="background: url('https://thumbs2.imgbox.com/a5/3c/e3V0S0O3_t.jpg') no-repeat center center/cover;"></div>
-                <div class="gallery-item" style="background: url('https://thumbs2.imgbox.com/77/f2/MR8pkuR0_t.jpg') no-repeat center center/cover;"></div>
-                <div class="gallery-item" style="background: url('https://thumbs2.imgbox.com/4b/6a/6W0lK9Q9_t.jpg') no-repeat center center/cover;"></div>
-                <div class="gallery-item" style="background: url('https://thumbs2.imgbox.com/77/f2/MR8pkuR0_t.jpg') no-repeat center center/cover;"></div>
-                <div class="gallery-item" style="background: url('https://thumbs2.imgbox.com/4b/6a/6W0lK9Q9_t.jpg') no-repeat center center/cover;"></div>
-                <div class="gallery-item" style="background: url('https://thumbs2.imgbox.com/a5/3c/e3V0S0O3_t.jpg') no-repeat center center/cover;"></div>
+                <div class="gallery-item" style="background: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1558&q=80') no-repeat center center/cover;"></div>
+                <div class="gallery-item" style="background: url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;"></div>
+                <div class="gallery-item" style="background: url('https://images.unsplash.com/photo-1556912167-f556f1f39fdf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;"></div>
+                <div class="gallery-item" style="background: url('https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;"></div>
+                <div class="gallery-item" style="background: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;"></div>
+                <div class="gallery-item" style="background: url('https://images.unsplash.com/photo-1560185007-cde436f6a4d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;"></div>
             </div>
         </div>
     </section>
@@ -1007,7 +1013,7 @@
                         El departamento es hermoso, muy bien ubicado y con todo lo necesario para una estadía cómoda. La comunicación con Noe fue excelente, siempre atenta a nuestras consultas. Sin duda volvería!
                     </div>
                     <div class="testimonial-author">
-                        <div class="testimonial-avatar" style="background: url('https://thumbs2.imgbox.com/77/f2/MR8pkuR0_t.jpg') no-repeat center center/cover;"></div>
+                        <div class="testimonial-avatar" style="background: url('https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80') no-repeat center center/cover;"></div>
                         <div>
                             <strong>María</strong>
                             <div data-es="Enero 2024" data-en="January 2024">Enero 2024</div>
@@ -1019,7 +1025,7 @@
                         Excelente ubicación, a pocas cuadras de todos los atractivos de San Telmo. El lugar es tal cual se ve en las fotos, muy limpio y acogedor. Noe fue muy amable y nos dio excelentes recomendaciones.
                     </div>
                     <div class="testimonial-author">
-                        <div class="testimonial-avatar" style="background: url('https://thumbs2.imgbox.com/4b/6a/6W0lK9Q9_t.jpg') no-repeat center center/cover;"></div>
+                        <div class="testimonial-avatar" style="background: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80') no-repeat center center/cover;"></div>
                         <div>
                             <strong>Carlos</strong>
                             <div data-es="Diciembre 2023" data-en="December 2023">Diciembre 2023</div>
@@ -1031,7 +1037,7 @@
                         Nos encantó la estadía! El departamento es muy lindo, cómodo y está en la mejor ubicación de San Telmo. Pudimos caminar a todos lados. Noe es una anfitriona excelente, siempre dispuesta a ayudar.
                     </div>
                     <div class="testimonial-author">
-                        <div class="testimonial-avatar" style="background: url('https://thumbs2.imgbox.com/a5/3c/e3V0S0O3_t.jpg') no-repeat center center/cover;"></div>
+                        <div class="testimonial-avatar" style="background: url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;"></div>
                         <div>
                             <strong>Ana</strong>
                             <div data-es="Noviembre 2023" data-en="November 2023">Noviembre 2023</div>
@@ -1043,7 +1049,7 @@
                         El lugar es ideal para conocer San Telmo. Está a pasos del mercado y de todos los bares y restaurantes. Muy buena comunicación con la anfitriona. Todo impecable y muy cómodo.
                     </div>
                     <div class="testimonial-author">
-                        <div class="testimonial-avatar" style="background: url('https://thumbs2.imgbox.com/77/f2/MR8pkuR0_t.jpg') no-repeat center center/cover;"></div>
+                        <div class="testimonial-avatar" style="background: url('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;"></div>
                         <div>
                             <strong>Javier</strong>
                             <div data-es="Octubre 2023" data-en="October 2023">Octubre 2023</div>
@@ -1055,7 +1061,7 @@
                         Inmejorable relación calidad-precio. El departamento tiene todo lo necesario y la ubicación es perfecta. Noe es muy atenta y responde rápidamente. Volveríamos sin dudarlo!
                     </div>
                     <div class="testimonial-author">
-                        <div class="testimonial-avatar" style="background: url('https://thumbs2.imgbox.com/4b/6a/6W0lK9Q9_t.jpg') no-repeat center center/cover;"></div>
+                        <div class="testimonial-avatar" style="background: url('https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2067&q=80') no-repeat center center/cover;"></div>
                         <div>
                             <strong>Laura</strong>
                             <div data-es="Septiembre 2023" data-en="September 2023">Septiembre 2023</div>
@@ -1067,7 +1073,7 @@
                         Hermoso departamento, superó nuestras expectativas. Muy luminoso, cómodo y con todos los amenities. La zona es increíble, llena de vida y cultura. Noe es una anfitriona excepcional.
                     </div>
                     <div class="testimonial-author">
-                        <div class="testimonial-avatar" style="background: url('https://thumbs2.imgbox.com/a5/3c/e3V0S0O3_t.jpg') no-repeat center center/cover;"></div>
+                        <div class="testimonial-avatar" style="background: url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80') no-repeat center center/cover;"></div>
                         <div>
                             <strong>Diego</strong>
                             <div data-es="Agosto 2023" data-en="August 2023">Agosto 2023</div>
