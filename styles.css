@@ -311,37 +311,156 @@ section {
     color: var(--color-primary);
 }
 
-/* Espacios */
-.spaces {
+/* Galería */
+.gallery {
     background-color: var(--color-white);
 }
 
-.spaces-grid {
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    height: 280px;
+    background-color: var(--color-medium);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    background-size: cover;
+    background-position: center;
+}
+
+.gallery-item:hover {
+    transform: scale(1.03);
+}
+
+/* NUEVOS ESTILOS PARA LA SECCIÓN DE RESEÑAS */
+.reviews {
+    background-color: var(--color-light);
+}
+
+.reviews-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+}
+
+.rating-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    margin-right: 0.5rem;
+}
+
+.rating-stars {
+    color: var(--color-accent);
+    font-size: 1.5rem;
+}
+
+.review-count {
+    color: var(--color-dark);
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.review-categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.review-category {
+    text-align: center;
+    background-color: var(--color-white);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    min-width: 120px;
+}
+
+.category-name {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-dark);
+    font-size: 0.9rem;
+}
+
+.category-rating {
+    color: var(--color-accent);
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.testimonial-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
 
-.space-card {
-    background-color: var(--color-light);
+.testimonial-card {
+    background-color: var(--color-white);
+    padding: 2rem;
     border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
 }
 
-.space-image {
-    height: 200px;
+.testimonial-text {
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    position: relative;
+    flex-grow: 1;
+    font-size: 1rem;
+}
+
+.testimonial-text:before {
+    content: """;
+    font-size: 3rem;
+    color: var(--color-medium);
+    position: absolute;
+    top: -1rem;
+    left: -0.5rem;
+    opacity: 0.3;
+    font-family: Georgia, serif;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    margin-top: auto;
+}
+
+.testimonial-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     background-color: var(--color-medium);
+    margin-right: 1rem;
+    background-size: cover;
+    background-position: center;
+    border: 2px solid var(--color-light);
 }
 
-.space-content {
-    padding: 1.5rem;
-}
-
-.space-content h3 {
-    font-family: var(--font-tango);
-    margin-bottom: 0.8rem;
+.testimonial-author strong {
     color: var(--color-primary);
+}
+
+.testimonial-author div {
+    font-size: 0.9rem;
+    color: #777;
 }
 
 /* Normas - Modal */
@@ -425,135 +544,6 @@ section {
     border-radius: 8px;
     margin-top: 2rem;
     border-left: 4px solid var(--color-accent);
-}
-
-/* Galería */
-.gallery {
-    background-color: var(--color-white);
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
-}
-
-.gallery-item {
-    height: 280px;
-    background-color: var(--color-medium);
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.3s;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    background-size: cover;
-    background-position: center;
-}
-
-.gallery-item:hover {
-    transform: scale(1.03);
-}
-
-/* Reseñas de Airbnb */
-.reviews {
-    background-color: var(--color-light);
-}
-
-.reviews-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 2rem;
-}
-
-.rating {
-    display: flex;
-    align-items: center;
-    margin-right: 1.5rem;
-}
-
-.rating-number {
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--color-primary);
-    margin-right: 0.5rem;
-}
-
-.rating-stars {
-    color: var(--color-accent);
-    font-size: 1.2rem;
-}
-
-.review-count {
-    color: var(--color-dark);
-    font-size: 1.1rem;
-}
-
-.review-categories {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-bottom: 3rem;
-}
-
-.review-category {
-    text-align: center;
-    min-width: 150px;
-}
-
-.category-name {
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: var(--color-dark);
-}
-
-.category-rating {
-    color: var(--color-accent);
-}
-
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.testimonial-card {
-    background-color: var(--color-white);
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-.testimonial-text {
-    font-style: italic;
-    margin-bottom: 1.5rem;
-    position: relative;
-}
-
-.testimonial-text:before {
-    content: """;
-    font-size: 3rem;
-    color: var(--color-medium);
-    position: absolute;
-    top: -1rem;
-    left: -0.5rem;
-    opacity: 0.3;
-    font-family: Georgia, serif;
-}
-
-.testimonial-author {
-    display: flex;
-    align-items: center;
-}
-
-.testimonial-avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: var(--color-medium);
-    margin-right: 1rem;
-    background-size: cover;
-    background-position: center;
 }
 
 /* Contacto */
@@ -761,10 +751,20 @@ footer {
     .reviews-header {
         flex-direction: column;
         text-align: center;
+        gap: 0.5rem;
     }
     
     .rating {
         margin-right: 0;
         margin-bottom: 1rem;
+    }
+
+    .review-categories {
+        gap: 1rem;
+    }
+
+    .review-category {
+        min-width: 100px;
+        padding: 0.8rem 1rem;
     }
 }
